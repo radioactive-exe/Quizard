@@ -39,6 +39,7 @@ var x;
 var y;
 
 window.onpageshow = () => {
+    transitionElement.classList.add('is-active');
     setTimeout(() => {
       transitionElement.classList.remove('is-active');  
     }, 500);
