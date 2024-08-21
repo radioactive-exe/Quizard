@@ -66,7 +66,8 @@ window.onload = () => {
                 window.location.href = target;
             }, 800);
         })
-    }    
+    }  
+    checkForDarkMode();  
 }
 
 document.addEventListener('click', e => {
@@ -91,5 +92,4 @@ document.addEventListener('click', e => {
     }
 })
 
-
-checkForDarkMode();
+checkForDarkMode(); 
