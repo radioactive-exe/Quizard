@@ -38,7 +38,7 @@ const root = document.documentElement;
 var x;
 var y;
 
-window.onload = () => {
+window.onpageshow = () => {
     setTimeout(() => {
       transitionElement.classList.remove('is-active');  
     }, 500);

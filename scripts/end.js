@@ -35,6 +35,6 @@ submitHighScore = (e) => {
     root.style.setProperty('--mouse-y', y + "%");
 
     setTimeout(() => {
-        window.location.assign('/');
+        window.location.assign('index.html');
     }, 800);
 }

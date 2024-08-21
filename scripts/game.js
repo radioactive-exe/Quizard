@@ -113,7 +113,7 @@ choices.forEach((choice) => {
             root.style.setProperty("--mouse-y", y + "%");
 
             setTimeout(() => {
-                return window.location.assign("/end.html");
+                return window.location.assign("end.html");
             }, 1000);
         }
         setTimeout(() => {
