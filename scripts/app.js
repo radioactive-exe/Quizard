@@ -19,7 +19,6 @@ check.addEventListener('change', e=> {
 
 checkForDarkMode = () => {
 
-    
     if (localStorage.getItem('darkModeValue') == 'true') {
         animbg.setAttribute('id', 'animate-background');
         document.body.classList.add('dark-theme');
@@ -39,6 +38,10 @@ var x;
 var y;
 
 window.onpageshow = () => {
+    window.dispatchEvent(new Event('load'));
+}
+
+window.onload = () => {
     transitionElement.classList.add('is-active');
     setTimeout(() => {
       transitionElement.classList.remove('is-active');  
@@ -63,7 +66,7 @@ window.onpageshow = () => {
                 window.location.href = target;
             }, 800);
         })
-    }
+    }    
 }
 
 document.addEventListener('click', e => {
