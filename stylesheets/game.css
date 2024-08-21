@@ -31,7 +31,7 @@
 }
 
 .choice-container:hover{
-    cursor: url("/assets/magic-wand.svg") 9 9, auto;
+    cursor: url("assets/magic-wand.svg") 9 9, auto;
     scale: 110%;
     box-shadow: 0 0.4rem 0.5rem 0.2rem var(--color-6);
     transform: translateY(-0.1rem);
@@ -40,7 +40,7 @@
 }
 
 .choice-container > *:hover{
-    cursor: url("/assets/magic-wand.svg") 9 9, auto;
+    cursor: url("assets/magic-wand.svg") 9 9, auto;
 }
 
 .correct{
