@@ -39,7 +39,6 @@ var y;
 
 window.onpageshow = () => {
     window.dispatchEvent(new Event('load'));
-    checkForDarkMode(); 
 }
 
 window.onload = () => {
