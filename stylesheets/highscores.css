@@ -1,0 +1,34 @@
+#high-scores-list {
+    list-style: decimal;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 0.1rem 1.4rem 0 var(--color-6);
+    border: none;
+    border-radius: 2rem;
+    width: 40rem;
+    max-width: 60vw;
+}
+
+.high-score-entry {
+    color: var(--secondary-color);
+    font-weight: bolder;
+    font-style: italic;
+    word-wrap: break-word;
+    font-size: 2.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: 100ms ease;
+}
+
+.high-score-entry:hover {
+    transform: scale(1.05);
+    transition: 100ms ease;
+}
+
+.score-name {
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 20rem;
+}

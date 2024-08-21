@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mightiest Quizards</title>
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="/stylesheets/highscores.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="transition transition-circle is-active"></div>
+    <div id="button-container">
+        <label>
+            <input type="checkbox" id="dark-light-check">
+            <ion-icon name="sunny" class="sun"></ion-icon>
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <span class="toggle"></span>
+        </label>
+    </div>
+    <span id="animated-background", class="target-background"></span>
+
+
+    <div class="container">
+        <div id="high-scores" class="flex-centre flex-column">
+            <h1 id="final-score">Most Powerful Quizards</h1>
+            <ul id="high-scores-list">
+            </ul>
+            <a class="button" href="/">Return home</a>
+        </div>
+    </div>
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/highscores.js"></script>
+</body>
+</html>

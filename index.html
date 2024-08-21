@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="stylesheets/app.css">
+</head>
+<body>
+    <div class="transition transition-circle is-active"></div>
+    <div id="button-container">
+        <label>
+            <input type="checkbox" id="dark-light-check">
+            <ion-icon name="sunny" class="sun"></ion-icon>
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <span class="toggle"></span>
+        </label>
+    </div>
+    <span id="animated-background", class="target-background"></span>
+    
+    <div class="container">
+        <div id="home" class="flex-column flex-centre"></div>
+            
+            <h1>
+                <img draggable="false" id="hat-wizard" src="/assets/hat-wizard.svg" alt="">
+                Quizard
+            </h1>
+            <a href="/game.html" class="button"><span class="button-text">Becometh a Quizard</span></a>
+            <a href="/highscores.html" class = "button"><span class="button-text">Behold ye Top Quizards</span></a>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>

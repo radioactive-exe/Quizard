@@ -1,0 +1,454 @@
+:root {
+  background-color: rgb(197, 248, 255);
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0;
+  padding: 0;
+  cursor: url("/assets/magic-wand-no-sparkles.svg") 9 9, auto;
+}
+
+body {
+  --primary-color: rgb(197, 248, 255);
+  --secondary-color: #2d867f;
+  --tertiary-color: rgb(197, 248, 255);
+  --white: #fff;
+  --color-4: #9efcff;
+  --color-5: #1a4b47;
+  --color-6: #223f3d86;
+  --color-7: #223f3d38;
+  --correct-color: greenyellow;
+  --wrong-color: coral;
+  --transition-color: #9efcff;
+  --textinput-color: #d6fcfd;
+  --disabled-color: #c6fdff;
+  --disabled-text-color: #6cb3ad;
+  --disabled-outline-color: #3b7772;
+  overflow: hidden;
+}
+
+.dark-theme {
+  --primary-color: #1a4b47;
+  --secondary-color: rgb(197, 248, 255);
+  --tertiary-color: #1a4b47;
+  --white: #fff;
+  --color-4: #2d867f;
+  --color-5: rgb(197, 248, 255);
+  --color-6: #223f3d;
+  --color-7: #223f3df8;
+  --correct-color: forestgreen;
+  --wrong-color: maroon;
+  --transition-color: #2d867f;
+  --textinput-color: #123d3a;
+  --disabled-color: #1e5752;
+  --disabled-text-color: rgb(138, 187, 190);
+  --disabled-outline-color: #3b7772;
+}
+
+p {
+  color: var(--color-5);
+  font-weight: bolder;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-5);
+  transition-delay: 0.5s;
+  transition: 0.5s ease;
+}
+
+h1 {
+  font-size: 5.4rem;
+  color: var(--secondary-color);
+  margin-bottom: 4.8rem;
+  font-variant: small-caps;
+  position: relative;
+  max-height: 10rem;
+  display: block;
+}
+
+h1>span {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 4.2rem;
+  margin-bottom: 4rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+
+a {
+  justify-content: center;
+}
+
+/* question {
+  width: 20vw;
+} */
+
+/* Utilities */
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: min(80rem, 90%);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-centre {
+  justify-content: center;
+  align-items: center;
+}
+
+.justify-centre {
+  justify-content: center;
+}
+
+.text-centre {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.button {
+  overflow: hidden;
+  font-size: 1.4rem;
+  text-decoration: none;
+  border: solid 2px;
+  border-color: var(--color-5);
+  width: 20rem;
+  height: 5rem;
+  padding: 1.3rem;
+  text-align: center;
+  font-weight: bolder;
+  background-color: var(--color-4);
+  color: var(--color-5);
+  margin-bottom: 1rem;
+  border-radius: 2.5rem 0.5rem;
+  transform: translateY(0.1rem);
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+  font-variant: small-caps;
+}
+
+.button:hover {
+  cursor: url("/assets/magic-wand.svg") 9 9, auto;
+  scale: 110%;
+  box-shadow: var(--color-6) 0 0.4rem 0.5rem 0.2rem;
+  transform: translateY(-0.1rem);
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+}
+
+.button[disabled]:hover {
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.button:active {
+  transition-duration: 40ms;
+  transition-timing-function: ease;
+  transform: scale(90%);
+}
+
+#hat-wizard {
+  position: absolute;
+  height: 100px;
+  left: 20%;
+  top: -135%;
+}
+
+.button:before {
+  content: '';
+  position: absolute;
+  height: 150px;
+  width: 20px;
+  background-color: var(--white);
+  box-shadow: 0 0 20px var(--white);
+  opacity: 0.8;
+  filter: blur(5px);
+  transform: translateX(-200px) rotate(-20deg);
+  transition: 0.7s;
+}
+
+.button:hover:before {
+  transform: translate(250px, -70px) rotate(-20deg);
+}
+
+#button-container:hover,
+.sun:hover,
+.moon:hover,
+.toggle:hover,
+.button-text:hover,
+label:hover {
+  cursor: url("/assets/magic-wand.svg") 9 9, auto;
+}
+
+.button-text {
+  pointer-events: none;
+}
+
+label {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: fixed;
+}
+
+input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: url('/assets/magic-wand.svg') 9 9, auto;
+  position: absolute;
+  opacity: 0;
+}
+
+.sun {
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--color-5);
+  transition: 1s;
+  transition-timing-function: ease;
+  transition-delay: 500ms;
+  position: fixed;
+}
+
+.moon {
+  border-radius: 60%;
+  color: var(--secondary-color);
+  font-size: 2rem;
+  transition: 0.5s;
+  transition-timing-function: ease;
+  position: absolute;
+  transform: scale(0);
+}
+
+input:checked~.sun {
+  border-radius: 50%;
+  transform: rotate(360deg) scale(0);
+  transition-delay: 0s;
+}
+
+input:checked~.moon {
+  border-radius: 50%;
+  transition-delay: 500ms;
+  transform: scale(1) rotate(360deg);
+}
+
+.toggle {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+
+  border-radius: 50%;
+  z-index: -1;
+
+  box-shadow:
+    inset 0px 8px 60px var(--color-7),
+    inset 0px 8px 8px var(--color-7),
+    inset 0px -4px 4px var(--color-7);
+
+  transition: 1s ease;
+  background-color: var(--primary-color);
+}
+
+#animate-background {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-color);
+  clip-path: circle(200% at 40px 40px);
+  z-index: -4;
+  transition: 1s ease;
+}
+
+#animated-background {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--secondary-color);
+  z-index: -4;
+  transition: 0.8s ease;
+  clip-path: circle(0% at 40px 40px);
+}
+
+#button-container {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: visible;
+  transition: 0.1s ease;
+}
+
+#button-container:before {
+  z-index: 1;
+  content: '';
+  position: absolute;
+  height: 150px;
+  width: 20px;
+  background-color: var(--white);
+  box-shadow: 0 0 20px var(--white);
+  opacity: 0.8;
+  filter: blur(5px);
+  transform: translateX(-100px) rotate(-20deg);
+  transition: 0.7s;
+}
+
+#button-container:hover {
+  transform: rotate(-20deg);
+  transition: 0.1s ease;
+}
+
+#button-container:hover:before {
+  transform: translate(100px, -70px) rotate(-20deg);
+}
+
+.transition-circle {
+  width: 0;
+  height: 0;
+  position: fixed;
+  border-radius: 50%;
+  background-color: var(--transition-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 500;
+  transition: 500ms ease;
+}
+
+.transition-circle.is-active {
+  top: var(--mouse-y);
+  left: var(--mouse-x);
+  width: 500vw;
+  height: 500vw;
+  transition: translate 0s;
+  transition: width 800ms, height 800ms;
+  transition-delay: 0.5s;
+  translate: -50%, -50%;
+}
+
+.star {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0, 5));
+}
+
+.star::before {
+  position: absolute;
+  content: '\f005';
+  font-family: fontAwesome;
+  color: var(--color-5);
+  animation: moveStars 800ms ease forwards;
+}
+
+@keyframes moveStars {
+  0% {
+    transform: translate(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  20%,
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input::placeholder {
+  color: var(--disabled-text-color);
+  font-weight: normal;
+}
+
+input {
+  margin-bottom: 1rem;
+  width: 20rem;
+  height: 5rem;
+  border-radius: 10px;
+  border: none;
+  padding: 1.5rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  box-shadow: 0 0.1rem 1.4rem 0 var(--color-6);
+  background-color: var(--textinput-color);
+  color: var(--secondary-color);
+}
+
+button:disabled,
+#submit-score-button:disabled {
+  cursor: url('/assets/magic-wand-not-allowed.svg') 9 9, auto;
+  box-shadow: inset 0 0.1rem 1.4rem 0 var(--color-6);
+  translate: 0 1px;
+  background-color: var(--disabled-color);
+  color: var(--disabled-text-color);
+  transition: 0s;
+  transform: none;
+  border-color: var(--disabled-outline-color);
+}
+
+#submit-score-button:disabled:hover {
+  box-shadow: inset 0 0.1rem 1.4rem 0 var(--color-6);
+  scale: 1;
+}
+
+#submit-score-button:disabled::before,
+#submit-score-button:disabled:hover::before {
+  transition: 0s;
+  height: 0;
+  width: 0;
+}
+
+@media screen and (max-width: 600px) {
+  h2 {
+    font-size: 3rem;
+  }
+}
