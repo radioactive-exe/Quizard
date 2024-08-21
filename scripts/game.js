@@ -95,11 +95,14 @@ choices.forEach((choice) => {
 
         const classToApply =
             selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+        const soundToPlay = selectedAnswer == currentQuestion.answer ? "../assets/correct-ding.mp3" : "../assets/incorrect-ding.wav"; 
         if (classToApply == "correct") incrementScore(CORRECT_BONUS);
 
         selectedChoice.parentElement
             .getElementsByClassName("choice-text")[0]
             .classList.add(classToApply);
+        const audioItem = new Audio(soundToPlay);
+        audioItem.play();
 
         if (availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS) {
             localStorage.setItem("lastScore", score);
@@ -139,8 +142,14 @@ htmlToString = (html) => {
 
 checkForDarkMode(); 
 
+init = () => {
 fetch('https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple')
     .then( res => {
+        if (!res.ok) {
+            setTimeout(() => {
+                init();
+            }, 2000);
+        }
         return res.json();
     })
     .then( data => {
@@ -168,6 +177,8 @@ fetch('https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=mul
     .catch( error => {
         console.log(error);
     })
+}
+init();
 
 // IDEA: Why for(int x = 1)
 /* * choiceLabels.forEach( label => {
