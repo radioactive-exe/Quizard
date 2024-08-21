@@ -157,7 +157,7 @@ a {
 }
 
 .button:hover {
-  cursor: url("assets/magic-wand.svg") 9 9, auto;
+  cursor: url("../assets/magic-wand.svg") 9 9, auto;
   scale: 110%;
   box-shadow: var(--color-6) 0 0.4rem 0.5rem 0.2rem;
   transform: translateY(-0.1rem);
@@ -207,7 +207,7 @@ a {
 .toggle:hover,
 .button-text:hover,
 label:hover {
-  cursor: url("assets/magic-wand.svg") 9 9, auto;
+  cursor: url("../assets/magic-wand.svg") 9 9, auto;
 }
 
 .button-text {
@@ -228,7 +228,7 @@ input[type="checkbox"] {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  cursor: url('assets/magic-wand.svg') 9 9, auto;
+  cursor: url('../assets/magic-wand.svg') 9 9, auto;
   position: absolute;
   opacity: 0;
 }
@@ -425,7 +425,7 @@ input {
 
 button:disabled,
 #submit-score-button:disabled {
-  cursor: url('assets/magic-wand-not-allowed.svg') 9 9, auto;
+  cursor: url('../assets/magic-wand-not-allowed.svg') 9 9, auto;
   box-shadow: inset 0 0.1rem 1.4rem 0 var(--color-6);
   translate: 0 1px;
   background-color: var(--disabled-color);
