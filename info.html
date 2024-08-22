@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Great Job!</title>
+    <title>Hmm...?</title>
     <link rel="stylesheet" href="stylesheets/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -18,24 +18,28 @@
         </label>
     </div>
     <span id="animated-background", class="target-background"></span>
-    
     <div class="container">
-        <div id="end" class="flex-center flex-column">
-            <h2>Final Score</h2>
-            <h1 id="final-score">0</h1>
-            <form>
-                <input type="text" name="username" id="username" placeholder="Username">
-                <button type="submit" class="button" id="submit-score-button" onclick="submitHighScore(event)"
-                disabled>Submit Quizardry Score</button>
-            </form>
-            <a href="game.html" class="button">Try Again</a>
-            <a href="index.html" class="button">Home</a>
-        </div>
+        <h2 class="subtitle">Credits, Attributions, and the like, my Liege</h2>
+        <ul>
+            <li>Icons hath been sourced frometh <em>ionic.io/ionicons</em> and <em>fontawesome.com</em></li>
+            <li>Based on project mini-course by James Quick on Udemy</li>
+            <li>Questions reign frometh The Trivia API (https://the-trivia-api.com/)</li>
+            <li>Cursor hath been obtained from the UICONS pack, modified and expanded by myself.</li>
+        </ul>
+
+        <h2 class="subtitle">Information for them Nerdians, sire</h2>
+        <ul>
+            <li>Programmed with JS (ES6), CSS3, and HTML5</li>
+            <li>Planned features include: user-control over fetch parameters from the Trivia API, Database storage of scores for multiplayer</li>
+        </ul>
+        <a href="index.html" class="button small-button back-button"><i class="fa-solid fa-right-from-bracket fa-flip-horizontal"></i></a>
+        
+
     </div>
+
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/end.js"></script>
 </body>
 </html>

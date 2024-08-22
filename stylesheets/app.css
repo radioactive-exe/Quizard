@@ -9,6 +9,12 @@
   margin: 0;
   padding: 0;
   cursor: url("../assets/magic-wand-no-sparkles.svg") 9 9, auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+li {
+  font-size: 2rem;
+  color: var(--secondary-color);
 }
 
 body {
@@ -51,6 +57,7 @@ body {
 p {
   color: var(--color-5);
   font-weight: bolder;
+  font-size: 1.6rem;
 }
 
 h1,
@@ -62,6 +69,7 @@ h4 {
   color: var(--color-5);
   transition-delay: 0.5s;
   transition: 0.5s ease;
+  pointer-events: none;
 }
 
 h1 {
@@ -101,6 +109,7 @@ a {
 /* Utilities */
 
 .container {
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -305,6 +314,7 @@ input:checked~.moon {
 }
 
 #button-container {
+  z-index: 10;
   margin-top: 20px;
   margin-left: 20px;
   width: 40px;
@@ -451,4 +461,33 @@ button:disabled,
   h2 {
     font-size: 3rem;
   }
+}
+
+.small-button {
+  width: 5rem;
+}
+
+.info-button span::before {
+  content: '\f129';
+  font-family: fontAwesome;
+  /* font-size: 2rem; */
+}
+
+/* .back-button span::before {
+  content: '\f129';
+  font-family: fontAwesome;
+} */
+
+.button-line-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.spacer {
+  width: 5rem;
+}
+
+.subtitle {
+  margin: 2rem;
 }

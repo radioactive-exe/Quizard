@@ -142,8 +142,12 @@ htmlToString = (html) => {
 
 checkForDarkMode(); 
 
+// ! Open Trivia link: https://opentdb.com/api.php?amount=150&category=9&difficulty=easy&type=multiple
+
+// ! Trivia link 2: https://the-trivia-api.com/v2/questions?difficulties=easy,medium&categories=general_knowledge&types=text_choice
+
 init = () => {
-fetch('https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple')
+fetch('https://the-trivia-api.com/v2/questions?difficulties=easy,medium&categories=general_knowledge&types=text_choice')
     .then( res => {
         if (!res.ok) {
             setTimeout(() => {
@@ -153,18 +157,18 @@ fetch('https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=mul
         return res.json();
     })
     .then( data => {
-        questions = data.results.map( questionItem => {
+        questions = data.map( questionItem => {
             const formattedQuestion = {
-                question: htmlToString(questionItem.question)
+                question: htmlToString(questionItem.question.text)
 
                 // ? answer: 
                 // ? choice[1-4]:
                 // * The choices will be spread here
             }
 
-            const answerChoices = [...questionItem.incorrect_answers];
+            const answerChoices = [...questionItem.incorrectAnswers];
             formattedQuestion.answer = Math.floor(Math.random() * 3) + 1;
-            answerChoices.splice(formattedQuestion.answer - 1, 0, questionItem.correct_answer)
+            answerChoices.splice(formattedQuestion.answer - 1, 0, questionItem.correctAnswer)
 
             answerChoices.forEach((item, index) => {
                 formattedQuestion['choice' + (index+ 1)] = htmlToString(item);
