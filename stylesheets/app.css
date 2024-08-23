@@ -473,10 +473,10 @@ button:disabled,
   /* font-size: 2rem; */
 }
 
-/* .back-button span::before {
-  content: '\f129';
+.back-button span::before {
+  content: '\f2f6';
   font-family: fontAwesome;
-} */
+}
 
 .button-line-container {
   display: flex;
@@ -490,4 +490,58 @@ button:disabled,
 
 .subtitle {
   margin: 2rem;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: teal;
+}
+
+.loader-1 {
+  position: relative;
+  transform: rotate(calc(45deg * var(--i)));
+}
+
+.loader-1 .loader-1-span {
+  position: absolute;
+  transform: rotate(calc(18deg * var(--j)));
+}
+
+.loader-1 .loader-1-span::before {
+  content: '\f005';
+  font-size: 0.6rem;
+  font-family: fontAwesome;
+  position: absolute;
+  color: turquoise;
+  animation: animate-loader 4s linear infinite;
+  animation-delay: calc((-0.4s * var(--j)));
+}
+
+.loader-1:nth-child(even) .loader-1-span::before {
+  content: '\f006';
+}
+
+@keyframes animate-loader {
+  0% {
+      transform: translateX(10rem) scale(4);
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      transform: translateX(-1rem) scale(0);
+      opacity: 0;
+  }
+}
+
+
+#error-heading {
+  position: fixed;
+  bottom: 2rem;
+  max-width: 80%;
+  margin: auto;
 }

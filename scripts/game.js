@@ -5,13 +5,16 @@ const choiceLabels = Array.from(
 );
 
 const game = document.getElementById('game');
-const loader = document.getElementById('loader');
+const loader = document.getElementById('loader-container');
+const errorHeader = document.getElementById('error-header');
 
 const counterText = document.getElementById("question-number");
 const scoreText = document.getElementById("score");
 const progressBarFill = document.getElementById("progress-bar-fill");
 
 const darkLightCheck = document.getElementById("dark-light-check");
+
+let numOfRetries = 0;
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -64,6 +67,7 @@ startGame = () => {
     getNewQuestion();
     game.classList.remove('hidden');
     loader.classList.add('hidden');
+    errorHeader.classList.add('hidden');
 };
 
 getNewQuestion = () => {
@@ -149,8 +153,12 @@ checkForDarkMode();
 init = () => {
 fetch('https://the-trivia-api.com/v2/questions?difficulties=easy,medium&categories=general_knowledge&types=text_choice')
     .then( res => {
+        if (numOfRetries >= 10) {
+            errorHeader.classList.remove('hidden');
+        }
         if (!res.ok) {
             setTimeout(() => {
+                numOfRetries++;
                 init();
             }, 2000);
         }
@@ -182,6 +190,25 @@ fetch('https://the-trivia-api.com/v2/questions?difficulties=easy,medium&categori
         console.log(error);
     })
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+        const cont = document.querySelector('#loader-container');
+        for (let i = 0; i < 4; i++) {
+            let loader = document.createElement('div');
+            loader.classList.add('loader-1');
+            loader.style.setProperty('--i',i);
+            for (let j = 1; j < 21; j++) {
+                let span = document.createElement('span');
+                span.classList.add('loader-1-span');
+                span.style.setProperty('--j',j);
+                loader.appendChild(span);
+            }
+            cont.appendChild(loader);
+        }
+    })
+
+
 init();
 
 // IDEA: Why for(int x = 1)
