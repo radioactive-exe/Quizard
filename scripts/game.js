@@ -95,14 +95,14 @@ choices.forEach((choice) => {
 
         const classToApply =
             selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-        const soundToPlay = selectedAnswer == currentQuestion.answer ? "../assets/correct-ding.mp3" : "../assets/incorrect-ding.wav"; 
+        // const soundToPlay = selectedAnswer == currentQuestion.answer ? "../assets/correct-ding.mp3" : "../assets/incorrect-ding.wav"; 
         if (classToApply == "correct") incrementScore(CORRECT_BONUS);
 
         selectedChoice.parentElement
             .getElementsByClassName("choice-text")[0]
             .classList.add(classToApply);
-        const audioItem = new Audio(soundToPlay);
-        audioItem.play();
+        // const audioItem = new Audio(soundToPlay);
+        // audioItem.play();
 
         if (availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS) {
             localStorage.setItem("lastScore", score);
