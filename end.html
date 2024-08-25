@@ -21,11 +21,15 @@
     <span id="animated-background", class="target-background"></span>
     
     <div class="container">
-        <div id="end" class="flex-center flex-column">
+        <div id="end" class="flex-center flex-column justify-centre">
             <h2>Final Score</h2>
             <h1 id="final-score">0</h1>
             <form>
-                <input type="text" name="username" id="username" placeholder="Username">
+                <div class="input-container">
+                    <input type="text" name="username" id="username" required>
+                    <span>Username</span>
+                </div>
+                
                 <button type="submit" class="button" id="submit-score-button" onclick="submitHighScore(event)"
                 disabled>Submit Quizardry Score</button>
             </form>

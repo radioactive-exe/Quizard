@@ -39,6 +39,14 @@
     transition-timing-function: ease-in-out;
 }
 
+/* .choice-container:hover + .choice-container {
+    scale: 102%;
+}
+
+.choice-container:has(+ .choice-container:hover) {
+    scale: 102%;
+} */
+
 .choice-container > *:hover{
     cursor: url("../assets/magic-wand.svg") 9 9, auto;
 }

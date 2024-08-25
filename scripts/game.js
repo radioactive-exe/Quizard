@@ -4,6 +4,8 @@ const choiceLabels = Array.from(
     document.getElementsByClassName("choice-label")
 );
 
+var correctChoice;
+
 const game = document.getElementById('game');
 const loader = document.getElementById('loader-container');
 const errorHeader = document.getElementById('error-header');
@@ -99,6 +101,11 @@ choices.forEach((choice) => {
 
         const classToApply =
             selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+        correctChoice = document.querySelector(".choice-text[data-number=\"" + currentQuestion.answer + "\"]");
+        correctChoice.classList.add("correct");
+
+
         // const soundToPlay = selectedAnswer == currentQuestion.answer ? "../assets/correct-ding.mp3" : "../assets/incorrect-ding.wav"; 
         if (classToApply == "correct") incrementScore(CORRECT_BONUS);
 
@@ -127,6 +134,7 @@ choices.forEach((choice) => {
             selectedChoice.parentElement
                 .getElementsByClassName("choice-text")[0]
                 .classList.remove(classToApply);
+            correctChoice.classList.remove("correct");
             if (availableQuestions.length != 0 && questionCounter < MAX_QUESTIONS)
                 getNewQuestion();
         }, 1000);

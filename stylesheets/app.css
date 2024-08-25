@@ -145,6 +145,7 @@ a {
 }
 
 .button {
+  align-self: center;
   overflow: hidden;
   font-size: 1.4rem;
   text-decoration: none;
@@ -418,12 +419,21 @@ input::placeholder {
   font-weight: normal;
 }
 
-input {
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container input {
   margin-bottom: 1rem;
   width: 20rem;
   height: 5rem;
-  border-radius: 10px;
-  border: none;
+  border-radius: 1rem;
+  border: 2px solid var(--textinput-color);
+  border-style: solid;
   padding: 1.5rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 1.8rem;
@@ -431,6 +441,50 @@ input {
   box-shadow: 0 0.1rem 1.4rem 0 var(--color-6);
   background-color: var(--textinput-color);
   color: var(--secondary-color);
+  transition: 0.5s ease;
+}
+
+.input-container span {
+  overflow: visible;
+  font-size: 1.8rem;
+  color: var(--disabled-text-color);
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  border: 2px solid var(--textinput-color);
+  padding-left: 1.5rem;
+  pointer-events: none;
+  font-variant: small-caps;
+  transition: all 0.5s ease 0.4s, border 0.5s ease;
+  border-bottom: none;
+  padding: 0.2rem 1rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.input-container input:valid ~ span,
+.input-container input:focus ~ span,
+.input-container input:hover ~ span {
+  transition-delay: 0s;
+  transform: translate(0.8rem, -2.4rem);
+  padding: 0.2rem 1rem;
+  height: 27%;
+  font-size: 1rem;
+  border-radius: 1rem 1rem 0 0;
+  letter-spacing: 0.2rem;
+  font-weight: bolder;
+  background-color: var(--textinput-color);
+}
+
+.input-container input:valid ~ span,
+.input-container input:focus ~ span {
+  border: 2px solid var(--color-5);
+  border-bottom: none;
+}
+
+.input-container input:valid,
+.input-container input:focus {
+  border: 2px solid var(--color-5);
+  outline: none;
 }
 
 button:disabled,
@@ -457,25 +511,26 @@ button:disabled,
   width: 0;
 }
 
-@media screen and (max-width: 600px) {
-  h2 {
-    font-size: 3rem;
-  }
-}
-
 .small-button {
   width: 5rem;
 }
 
-.info-button span::before {
+#info-button span::before {
   content: '\f129';
   font-family: fontAwesome;
   /* font-size: 2rem; */
 }
 
-.back-button span::before {
+#back-button span::before {
   content: '\f2f6';
   font-family: fontAwesome;
+}
+
+#options-button svg {
+  /* content: url("../assets/potion.svg"); */
+  fill: var(--color-5);
+  height: 120%;
+  transform: translateY(-0.2rem);
 }
 
 .button-line-container {
@@ -497,7 +552,6 @@ button:disabled,
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: teal;
 }
 
 .loader-1 {
@@ -515,7 +569,7 @@ button:disabled,
   font-size: 0.6rem;
   font-family: fontAwesome;
   position: absolute;
-  color: turquoise;
+  color: var(--secondary-color);
   animation: animate-loader 4s linear infinite;
   animation-delay: calc((-0.4s * var(--j)));
 }
@@ -545,3 +599,13 @@ button:disabled,
   max-width: 80%;
   margin: auto;
 }
+
+@media screen and (max-width: 600px) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+/* #end h2 {
+  max-width: 20rem;
+} */
