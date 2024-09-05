@@ -59,9 +59,10 @@ var questions = [];
 
 
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 10;
+let MAX_QUESTIONS = 20;
 
 startGame = () => {
+    MAX_QUESTIONS = Number(JSON.parse(localStorage.getItem('config')).quantity, 10);
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
@@ -86,6 +87,9 @@ getNewQuestion = () => {
         const number = choice.dataset["number"];
         choice.innerText = currentQuestion["choice" + number];
     });
+
+    document.querySelector('#difficulty').innerText = currentQuestion.difficulty.charAt(0).toUpperCase() + currentQuestion.difficulty.slice(1);
+    document.querySelector('#category').innerText = getLabelForm(currentQuestion.category);
 
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
@@ -159,7 +163,8 @@ checkForDarkMode();
 // ! Trivia link 2: https://the-trivia-api.com/v2/questions?difficulties=easy,medium&categories=general_knowledge&types=text_choice
 
 init = () => {
-fetch('https://the-trivia-api.com/v2/questions?difficulties=easy,medium&categories=general_knowledge&types=text_choice')
+    const config = JSON.parse(localStorage.getItem('config'));
+fetch('https://the-trivia-api.com/v2/questions?difficulties=' + config.difficulties + '&categories=' + config.categories +'&types=text_choice&limit=' + config.quantity)
     .then( res => {
         if (numOfRetries >= 10) {
             errorHeader.classList.remove('hidden');
@@ -168,14 +173,16 @@ fetch('https://the-trivia-api.com/v2/questions?difficulties=easy,medium&categori
             setTimeout(() => {
                 numOfRetries++;
                 init();
-            }, 2000);
+            }, 10000);
         }
         return res.json();
     })
     .then( data => {
         questions = data.map( questionItem => {
             const formattedQuestion = {
-                question: htmlToString(questionItem.question.text)
+                question: htmlToString(questionItem.question.text),
+                difficulty: questionItem.difficulty,
+                category: questionItem.category
 
                 // ? answer: 
                 // ? choice[1-4]:
@@ -199,6 +206,20 @@ fetch('https://the-trivia-api.com/v2/questions?difficulties=easy,medium&categori
     })
 }
 
+getLabelForm = (s) => {
+    switch (s) {
+        case 'food_and_drink': return 'Food & Drink';
+        case 'music': return 'Music';
+        case 'arts_and_literature': return 'Arts & Literature';
+        case 'sport_and_leisure': return 'Sports & Leisure';
+        case 'science': return 'Science';
+        case 'history': return 'History';
+        case 'film_and_tv': return 'Film & TV';
+        case 'society_and_culture': return 'Society & Culture';
+        case 'geography': return 'Geography';
+    }
+    return 'General Knowledge';
+}
 
 document.addEventListener('DOMContentLoaded', () => {
         const cont = document.querySelector('#loader-container');

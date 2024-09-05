@@ -15,68 +15,111 @@
     <link rel="icon" href="assets/hat-wizard.svg" />
   </head>
   <body>
-    <div class="transition transition-circle is-active"></div>
-    <div id="button-container">
-      <label>
-        <input type="checkbox" id="dark-light-check" />
-        <ion-icon name="sunny" class="sun"></ion-icon>
-        <ion-icon name="moon" class="moon"></ion-icon>
-        <span class="toggle"></span>
-      </label>
-    </div>
-    <span id="animated-background" , class="target-background"></span>
-
-    <div class="container">
-      <div id="home" class="flex-column flex-centre">
-        <h1>
-          <img
-            draggable="false"
-            id="hat-wizard"
-            src="assets/hat-wizard.svg"
-            alt=""
-          />
-          Quizard
-        </h1>
-        <a href="game.html" class="button"
-          ><span class="button-text">Becometh a Quizard</span></a
-        >
+    <div id="body-content">  
+    <div class="blur">
+      <div class="transition transition-circle is-active"></div>
+      <div id="button-container">
+        <label>
+          <input type="checkbox" id="dark-light-check" />
+          <ion-icon name="sunny" class="sun"></ion-icon>
+          <ion-icon name="moon" class="moon"></ion-icon>
+          <span class="toggle"></span>
+        </label>
+      </div>
+      <span id="animated-background" , class="target-background"></span>
+      </div>
+      <div class="container">
+        <div class="blur">
+        <div id="home" class="flex-column flex-centre">
+          <h1>
+            <img
+              draggable="false"
+              id="hat-wizard"
+              src="assets/hat-wizard.svg"
+              alt=""
+            />
+            Quizard
+          </h1>
+          <a href="game.html" class="button" id="play-button">
+            <span class="button-text">Becometh a Quizard</span>
+          </a>
+        </div>
+        </div>
         <div class="button-line-container">
-          <div class="button small-button" id="options-button">
-            <span class="button-text">
-              <svg
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 21.4 30.6"
-                style="enable-background: new 0 0 21.4 30.6"
-                xml:space="preserve"
-              >
-                <path
-                  d="M10.7,29.4c-2.7,0-5.2-1.1-7-3.1c-1.8-1.9-2.8-4.4-2.8-6.8c0-3.5,1.9-6.8,5.1-8.7c0.1-0.1,0.2-0.2,0.2-0.3V8.4
-                        c0-0.4,0-0.8,0-1.3H4.6c-0.7,0-1.2-0.6-1.2-1.2l0,0c0-0.7,0.6-1.2,1.2-1.2h12.1c0.7,0,1.2,0.6,1.2,1.2l0,0c0,0.7-0.6,1.2-1.2,1.2
-                        h-1.4v3.4c0,0.1,0.1,0.2,0.2,0.3c3.2,1.9,5.1,5.2,5.1,8.7c0,2.5-1,5-2.8,6.8C15.8,28.3,13.4,29.4,10.7,29.4z M8.6,7.1
-                        c0,0.5,0,0.9,0,1.3v2.1c0,1-0.5,1.9-1.4,2.4c-2.4,1.4-3.9,3.9-3.9,6.5c0,3.6,3,7.4,7.4,7.4s7.4-3.8,7.4-7.4l0,0
-                        c0-2.6-1.5-5.1-3.9-6.5c-0.9-0.5-1.4-1.4-1.4-2.4V7.1H8.6z M14.5,4.8H6.9V2.1c0-0.5,0.4-0.9,0.9-0.9h5.8c0.5,0,0.9,0.4,0.9,0.9
-                        L14.5,4.8L14.5,4.8z M14.5,4.8H6.9V2.1c0-0.5,0.4-0.9,0.9-0.9h5.8c0.5,0,0.9,0.4,0.9,0.9L14.5,4.8L14.5,4.8z M2.1,19.6
-                        c1.8-1.3,3.3-1.6,4.5-1.6c3.4,0.1,4.4,3,7.8,3.1c1.8,0.1,3.7-0.7,4.9-1.5L19,21.4c0,0-1.2,3.3-2.5,4.3c-1.4,1-5.2,3.9-9.8,1.4
-                        S2.1,19.6,2.1,19.6z"
-                />
-              </svg>
-            </span>
+          <ul class="menu">
+            <div class="options-toggle">
+              <div class="button small-button" id="options-button">
+                <span class="button-text">
+                  <svg version="1.1" id="potion-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+                    <path id="potion-body" d="M36.7,23.7c-0.1-0.1-0.3-0.3-0.3-0.4v-4.8h2c0.8,0,1.7-0.7,1.7-1.7c0-0.8-0.7-1.7-1.7-1.7h-17c-0.8,0-1.7,0.7-1.7,1.7
+                    c0,0.8,0.7,1.7,1.7,1.7h2.3c0,0.7,0,1.3,0,1.8v3c0,0.1-0.1,0.3-0.3,0.4c-4.5,2.7-7.2,7.3-7.2,12.3c0,3.4,1.4,6.9,3.9,9.6
+                    c2.5,2.8,6.1,4.4,9.9,4.4s7.2-1.5,10-4.4c2.5-2.5,3.9-6.1,3.9-9.6C43.9,31,41.2,26.3,36.7,23.7z M30,46.2
+                    c-6.2,0-10.4-5.4-10.4-10.4c0-3.7,2.1-7.2,5.5-9.2c1.3-0.7,2-2,2-3.4v-3c0-0.6,0-1.1,0-1.8h5.9v4.8c0,1.4,0.7,2.7,2,3.4
+                    c3.4,2,5.5,5.5,5.5,9.2C40.4,40.8,36.2,46.2,30,46.2z"/>
+                    <path id="potion-fill" d="M17.9,36.1c2.5-1.8,4.6-2.3,6.3-2.3c4.8,0.1,6.2,4.2,11,4.4c2.5,0.1,5.2-1,6.9-2.1l-0.4,2.5c0,0-1.7,4.6-3.5,6.1
+                    c-2,1.4-7.3,5.5-13.8,2C17.9,43.1,17.9,36.1,17.9,36.1z"/>
+                    <path id="potion-cork" d="M34.5,17.9h-8.9c-0.5,0-0.9-0.4-0.9-0.9v-6c0-0.5,0.4-0.9,0.9-0.9h8.9c0.5,0,0.9,0.4,0.9,0.9v6
+                    C35.3,17.5,34.9,17.9,34.5,17.9z"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <li style="--i:2" id="quantity-selector">
+              <h4>Number of Questions</h4>
+              <div id="quantity-selector-container" class="scroll-selector-container">
+                <i class="fa-solid fa-caret-left left-arrow" id="quantity-left-arrow"></i>
+                <div class="scroll-box" id="quantity-scroll-box">
+                </div>
+                <i class="fa-solid fa-caret-right right-arrow" id="quantity-right-arrow"></i>
+              </div>
+            </li>
+            <li style="--i:1" id="category-selector">
+              <h4>Categories</h4>
+              <div id="category-dropdown" class="multiselect-dropdown">
+                <i class="fa-solid fa-caret-down"></i>
+                <ul id="category-selected-list" class="selected-list-container"></ul>
+                <ul id="category-menu" class="selector-menu">
+                    <li>General Knowledge</li>
+                    <li>Music</li>
+                    <li>Sports & Leisure</li>
+                    <li>Film & TV</li>
+                    <li>Arts & Literature</li>
+                    <li>History</li>
+                    <li>Society & Culture</li>
+                    <li>Science</li>
+                    <li>Geography</li>
+                    <li>Food & Drink</li>
+                </ul>
+              </div>
+            </li>
+            <li style="--i:0" id="difficulty-selector">
+              <h4>Difficulty</h4>
+              <div id="difficulty-dropdown" class="multiselect-dropdown">
+                <i class="fa-solid fa-caret-down"></i>
+                <ul id="difficulty-selected-list" class="selected-list-container"></ul>
+                <ul id="difficulty-menu" class="selector-menu">
+                    <li>Easy</li>
+                    <li>Medium</li>
+                    <li>Hard</li>
+                </ul>
+              </div>
+            </li>
+
+
+          </ul>
+          <div class="button-line-container blur">
+            <a href="highscores.html" class="button"
+              ><span class="button-text">Behold ye Top Quizards</span></a
+            >
+            <a href="info.html" class="button small-button" id="info-button"
+              ><span class="button-text"></span
+            ></a>
           </div>
-          <a href="highscores.html" class="button"
-            ><span class="button-text">Behold ye Top Quizards</span></a
-          >
-          <a href="info.html" class="button small-button" id="info-button"
-            ><span class="button-text"></span
-          ></a>
         </div>
       </div>
     </div>
-
+    </div>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -86,5 +129,6 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/index.js"></script>
   </body>
 </html>

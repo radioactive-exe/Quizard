@@ -5,7 +5,7 @@ const check = document.getElementById('dark-light-check');
 
 check.addEventListener('change', e=> {
     localStorage.setItem('darkModeValue', check.checked);
-    console.log(check.checked);
+    // console.log(check.checked);
     if (e.currentTarget.checked) {
         animbg.setAttribute('id', 'animate-background');
         document.body.classList.add('dark-theme');
@@ -28,7 +28,7 @@ checkForDarkMode = () => {
         document.body.classList.remove('dark-theme');
         check.checked = false;
     }
-    console.log(localStorage.getItem('darkModeValue'));
+    // console.log(localStorage.getItem('darkModeValue'));
 }
 
 const transitionElement = document.querySelector('.transition');

@@ -9,61 +9,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="assets/hat-wizard.svg">
 </head>
-<body>    
-    <div class="transition transition-circle is-active"></div>
-    <div id="button-container">
-        <label>
-            <input type="checkbox" id="dark-light-check">
-            <ion-icon name="sunny" class="sun"></ion-icon>
-            <ion-icon name="moon" class="moon"></ion-icon>
-            <span class="toggle"></span>
-        </label>
-    </div>
-    <span id="animated-background", class="target-background"></span>
-    
-    <div class="container">
-        <div id="loader-container"></div>
-        <div id="game" class="justify-centre flex-column hidden">
-            <div id="hud">
-                <div id="hud-item">
-                    <p class="item-prefix" id="question-number" >
-                        Question
-                    </p>
-                    <div id="progress-bar-container">
-                        <div id="progress-bar-fill"></div>
+    <div id="body-content">    
+        <div class="transition transition-circle is-active"></div>
+        <div id="button-container">
+            <label>
+                <input type="checkbox" id="dark-light-check">
+                <ion-icon name="sunny" class="sun"></ion-icon>
+                <ion-icon name="moon" class="moon"></ion-icon>
+                <span class="toggle"></span>
+            </label>
+        </div>
+        <span id="animated-background", class="target-background"></span>
+        
+        <div class="container">
+            <div id="loader-container"></div>
+            <div id="game" class="justify-centre flex-column hidden">
+                <div id="hud">
+                    <div id="hud-item">
+                        <p class="item-prefix" id="question-number" >
+                            Question
+                        </p>
+                        <div id="progress-bar-container">
+                            <div id="progress-bar-fill"></div>
+                        </div>
+                    </div>
+                    <div id="hud-item">
+                        <p class="item-prefix">
+                            Score
+                        </p>
+                        <h1 class="item-text" id="score">
+                            0
+                        </h1>
                     </div>
                 </div>
-                <div id="hud-item">
-                    <p class="item-prefix">
-                        Score
-                    </p>
-                    <h1 class="item-text" id="score">
-                        0
-                    </h1>
+                <h2 id="question">Answer the following question...</h2>
+                
+                <div class="choice-container">
+                    <p class="choice-label">A</p>
+                    <p class="choice-text" data-number="1">Choice 1!</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-label">B</p>
+                    <p class="choice-text" data-number="2">Choice 2!</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-label">C</p>
+                    <p class="choice-text" data-number="3">Choice 3!</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-label">D</p>
+                    <p class="choice-text" data-number="4">Choice 4!</p>
+                </div>
+                <div id="sub-hud">
+                    <div id="sub-hud-item">
+                        <p class="sub-item-prefix">
+                            Question Difficulty
+                        </p>
+                        <h3 class="sub-item-text" id="difficulty">
+                            0
+                        </h3>
+                    </div>
+                    <div id="sub-hud-item">
+                        <p class="sub-item-prefix">
+                            Question Category
+                        </p>
+                        <h3 class="sub-item-text" id="category">
+                            0
+                        </h3>
+                    </div>
                 </div>
             </div>
-            <h2 id="question">Answer the following question...</h2>
-            
-            <div class="choice-container">
-                <p class="choice-label">A</p>
-                <p class="choice-text" data-number="1">Choice 1!</p>
-            </div>
-            <div class="choice-container">
-                <p class="choice-label">B</p>
-                <p class="choice-text" data-number="2">Choice 2!</p>
-            </div>
-            <div class="choice-container">
-                <p class="choice-label">C</p>
-                <p class="choice-text" data-number="3">Choice 3!</p>
-            </div>
-            <div class="choice-container">
-                <p class="choice-label">D</p>
-                <p class="choice-text" data-number="4">Choice 4!</p>
-            </div>
         </div>
-    </div>
 
-    <h3 id="error-header" class="hidden">Uh-oh! It seems like there is an error with the API we are getting questions from. Please wait 30 seconds and then refresh.</h3>
+        <h3 id="error-header" class="hidden">Uh-oh! It seems like there is an error with the API we are getting questions from. Please wait 30 seconds and then refresh.</h3>
+
+    </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

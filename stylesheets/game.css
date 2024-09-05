@@ -89,6 +89,29 @@
     text-align: center;
 }
 
+#sub-hud {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#difficulty {
+    text-align: left;
+}
+
+#category {
+    text-align: right;
+}
+
+.sub-item-prefix:has(+ #difficulty ) {
+    text-align: left;
+}
+
+.sub-item-prefix:has(+ #category ) {
+    text-align: right;
+}
+
 #progress-bar-container {
     outline: 2px solid var(--secondary-color);
     width: 30rem;
