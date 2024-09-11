@@ -1,5 +1,5 @@
 :root {
-  background-color: rgb(197, 248, 255);
+  /* background-color: var(--secondary-color); */
   font-size: 62.5%;
 }
 
@@ -44,10 +44,13 @@ body {
   --disabled-text-color: #6cb3ad;
   --disabled-outline-color: #3b7772;
   --pointer-wand: url("../assets/magic-wand.svg") 9 9, auto;
-  overflow: hidden;
+  background-color: var(--primary-color);
+  transition: 0.3s ease;
+  overflow-x: hidden;
 }
 
 .dark-theme {
+  transition: 0.3s ease 0.4s;
   --primary-color: #1a4b47;
   --secondary-color: rgb(197, 248, 255);
   --tertiary-color: #1a4b47;
@@ -122,14 +125,14 @@ a {
 .container {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: min(80rem, 90%);
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.8rem 0 1rem 0;
   overflow: visible;
 }
 
@@ -165,7 +168,7 @@ a {
   border: solid 2px;
   border-color: var(--color-5);
   width: 20rem;
-  height: 5rem;
+  height: 5rem !important;
   padding: 1.3rem;
   text-align: center;
   font-weight: bolder;
@@ -177,21 +180,6 @@ a {
   transition-duration: 100ms;
   transition-timing-function: ease-in-out;
   font-variant: small-caps;
-}
-
-.button:hover {
-  cursor: var(--pointer-wand);
-  scale: 110%;
-  box-shadow: var(--color-6) 0 0.4rem 0.5rem 0.2rem;
-  transform: translateY(-0.1rem);
-  transition-duration: 150ms;
-  transition-timing-function: ease-in-out;
-}
-
-.button[disabled]:hover {
-  transform: none;
-  box-shadow: none;
-  cursor: not-allowed;
 }
 
 .button:active {
@@ -220,26 +208,8 @@ a {
   transition: 0.7s;
 }
 
-.button:hover:before {
-  transform: translate(250px, -70px) rotate(-20deg);
-}
-
-#button-container:hover,
-.sun:hover,
-.moon:hover,
-.toggle:hover,
-.button-text:hover,
-label:hover {
-  cursor: var(--pointer-wand);
-}
-
 .button-text {
   pointer-events: none;
-}
-
-#body-content {
-  overflow: auto;
-  width: 100%;
 }
 
 label {
@@ -359,15 +329,6 @@ input:checked~.moon {
   transition: 0.7s;
 }
 
-#button-container:hover {
-  transform: rotate(-20deg);
-  transition: 0.1s ease;
-}
-
-#button-container:hover:before {
-  transform: translate(100px, -70px) rotate(-20deg);
-}
-
 .transition-circle {
   width: 0;
   height: 0;
@@ -394,6 +355,7 @@ input:checked~.moon {
 
 .star {
   position: absolute;
+  z-index: 10000;
   width: 20px;
   height: 20px;
   pointer-events: none;
@@ -543,11 +505,20 @@ button:disabled,
 #info-button span::before {
   content: '\f129';
   font-family: fontAwesome;
-  /* font-size: 2rem; */
+  font-size: 2rem;
+}
+
+.info-list {
+  padding-left: 2rem;
+}
+
+#back-button {
+  margin-top: 2rem;
 }
 
 #back-button span::before {
   content: '\f2f6';
+  font-size: 2rem;
   font-family: fontAwesome;
 }
 
@@ -900,6 +871,10 @@ button:disabled,
   border-radius: 2rem;
 }
 
+::-webkit-scrollbar-corner {
+  opacity: 0;
+}
+
 /* Handle on hover */
 /* ::-webkit-scrollbar-thumb:hover {
 } */
@@ -916,10 +891,6 @@ input:-webkit-autofill:active{
 
 input:-webkit-autofill{
   -webkit-text-fill-color: var(--color-5) !important;
-}
-
-.multiselect-dropdown > .fa-solid:hover, .selected-list-entry:hover, .selector-menu > li:hover, .selected-list-entry > *:hover {
-  cursor: var(--pointer-wand);
 }
 
 .item-zoom-out {
@@ -1046,7 +1017,57 @@ input:-webkit-autofill{
   /* background-color: violet; */
 }
 
+#star-layer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0%;
+  left: 0%;
+  pointer-events: none;
+}
 
+@media (hover: hover) {
+  .button:hover {
+    cursor: var(--pointer-wand);
+    scale: 110%;
+    box-shadow: var(--color-6) 0 0.4rem 0.5rem 0.2rem;
+    transform: translateY(-0.1rem);
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+  }
+  
+  .button[disabled]:hover {
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  .multiselect-dropdown > .fa-solid:hover, .selected-list-entry:hover, .selector-menu > li:hover, .selected-list-entry > *:hover {
+    cursor: var(--pointer-wand);
+  }
+
+  #button-container:hover {
+    transform: rotate(-20deg);
+    transition: 0.1s ease;
+  }
+  
+  #button-container:hover:before {
+    transform: translate(100px, -70px) rotate(-20deg);
+  }
+
+  .button:hover:before {
+    transform: translate(250px, -70px) rotate(-20deg);
+  }
+  
+  #button-container:hover,
+  .sun:hover,
+  .moon:hover,
+  .toggle:hover,
+  .button-text:hover,
+  label:hover {
+    cursor: var(--pointer-wand);
+  }
+}
 
 @media screen and (max-width: 600px) {
   h2 {

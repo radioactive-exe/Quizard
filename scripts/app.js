@@ -72,14 +72,14 @@ window.onload = () => {
 
 document.addEventListener('click', e => {
 
-    let body = document.querySelector('body');
+    let starLayer = document.querySelector('#star-layer');
     let num = Math.random() * 8 + 3;
 
     for (let i = 0; i < num; i++) {
 
         let star = document.createElement('span');
         star.classList.add('star');
-        body.appendChild(star);
+        starLayer.appendChild(star);
 
         star.style.left = e.clientX + "px";
         star.style.top = e.clientY + "px";
